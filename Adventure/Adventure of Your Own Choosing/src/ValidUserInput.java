@@ -7,8 +7,11 @@
  *
  */
 import java.util.Scanner;
-public class ValidUserInput {
+public class ValidUserInput 
+{
 	Scanner ui = new Scanner(System.in);
+	private String validInput;
+	private String userInput;
 	public ValidUserInput()
 	{
 		
@@ -23,26 +26,26 @@ public class ValidUserInput {
 		//Takes a variable amount of arguments. It took way too long to figure this out
 		for(int i = 0; i < valid.length; ++i)
 		{
-			String validInput = valid[i].toLowerCase();
-			String userInput = ui.nextLine().toLowerCase();
-			if(userInput.equals(validInput))
-			{
-				return userInput;
-			}
-			else
-			{
-				while(!((userInput.equals(validInput))))
-				{
-					System.out.println("Error, input is not valid. You can " + validInput + ". " + "Please try again" + "\n>");
-					if(this.takeValidInput(valid).equals(validInput))
-					{
-						return userInput;
-					}
-				}
-			}
+			validInput = valid[i].toLowerCase();
+			userInput = ui.nextLine().toLowerCase();
 			
 		}
-		return "Error";
+		if(userInput.equals(validInput))
+		{
+			return userInput;
+		}
+		else
+		{
+			while(!((userInput.equals(validInput))))
+			{
+				System.out.println("Error, input is not valid. You can " + validInput + ". " + "Please try again" + "\n>");
+				if(this.takeValidInput(valid).equals(validInput))
+				{
+					return userInput;
+				}
+			}
+		}
+		return "error";
 
 	}
 	
