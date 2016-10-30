@@ -23,8 +23,8 @@ public class ValidUserInput {
 		//Takes a variable amount of inputs. It took way too long to figure this out
 		for(int i = 0; i < valid.length; ++i)
 		{
-			String validInput = valid[i];
-			String userInput = ui.nextLine();
+			String validInput = valid[i].toLowerCase();
+			String userInput = ui.nextLine().toLowerCase();
 			if(userInput.equals(validInput))
 			{
 				return userInput;
