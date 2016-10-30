@@ -64,7 +64,7 @@ public class Game {
 				}
 			}
 		}
-		else if (ui.takeValidInput("start","leave").equals("Leave"))
+		else
 		{
 			g.type("Wait, what are you doing? You don't want to leave yet, there's so much more to do!" + "\n>");
 			if (ui.takeValidInput("leave").equals("leave"))

@@ -20,7 +20,7 @@ public class ValidUserInput {
 	 */
 	public String takeValidInput(String...valid)
 	{
-		//Takes a variable amount of inputs. It took way too long to figure this out
+		//Takes a variable amount of arguments. It took way too long to figure this out
 		for(int i = 0; i < valid.length; ++i)
 		{
 			String validInput = valid[i].toLowerCase();
