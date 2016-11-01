@@ -6,11 +6,12 @@
  * if it matches the inputs as specified in the arguments of takeValidInput.
  *
  */
+import java.util.Arrays;
 import java.util.Scanner;
 public class ValidUserInput 
 {
 	Scanner ui = new Scanner(System.in);
-	private String validInput;
+	private String[] validInput;
 	private String userInput;
 	public ValidUserInput()
 	{
@@ -24,27 +25,23 @@ public class ValidUserInput
 	public String takeValidInput(String...valid)
 	{
 		//Takes a variable amount of arguments. It took way too long to figure this out
-		for(int i = 0; i < valid.length; ++i)
-		{
-			validInput = valid[i].toLowerCase();
+			validInput = valid;
 			userInput = ui.nextLine().toLowerCase();
-			
-		}
-		if(userInput.equals(validInput))
-		{
-			return userInput;
-		}
-		else
-		{
-			while(!((userInput.equals(validInput))))
+			if(Arrays.asList(validInput).contains(userInput))
 			{
-				System.out.println("Error, input is not valid. You can " + validInput + ". " + "Please try again" + "\n>");
-				if(this.takeValidInput(valid).equals(validInput))
+				return userInput;
+			}
+			else
+			{
+				while(!((userInput.equals(validInput))))
 				{
-					return userInput;
+					System.out.println("Error, input is not valid. You can " + validInput + ". " + "Please try again" + "\n>");
+					if(this.takeValidInput(valid).equals(validInput))
+					{
+						return userInput;
+					}
 				}
 			}
-		}
 		return "error";
 
 	}
