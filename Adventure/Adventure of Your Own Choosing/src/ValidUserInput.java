@@ -1,7 +1,7 @@
 /**
  * 
  * @author Alexander Berry
- * @version 1.0.1
+ * @version 1.0.4
  * A program developed to take a user input and check it against a list of valid user inputs, before returning the user's input
  * if it matches the inputs as specified in the arguments of takeValidInput.
  *

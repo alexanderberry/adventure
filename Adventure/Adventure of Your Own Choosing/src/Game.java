@@ -39,7 +39,27 @@ public class Game {
 					{
 						System.out.println("You are back where you started. You think you should probably go to the " + "\n reactor room now.");
 						System.out.println("You are in the reactor room. You see a keycard on the floor." +
-								"\n You think that you should pick it up.");
+						"\nYou think that you should pick it up.");
+						if(ui.takeValidInput("pick up", "override reactor control protocols").equals("pick up"))
+						{
+							System.out.println("You pick up the keycard. You can now go to the bridge.");
+							if(ui.takeValidInput("go to the bridge", "override reactor control protocols").equals("go to the bridge"))
+							{
+								System.out.println("You enter the bridge. You see a control panel." + "\nYou may now release the"
+								+ " escape pods. You may also self destruct the ship");
+								if(ui.takeValidInput("self destruct", "release the escape pods").equals("release the escape pods"))
+								{
+									System.out.println("You enter an escape pod, and slowly begin to drift away from your ship, presumably" +
+									"\ntowards a new beginning");
+									ending = "Leave it all behind";
+									System.out.println("\nEnding Get: " + "\n" + ending);
+								}
+								
+							}
+						}
+						{
+							
+						}
 					}
 				}
 			}
@@ -58,7 +78,6 @@ public class Game {
 				}
 				else
 				{
-					String input = ui.takeValidInput("override reactor control protocols", "look at the reactor", "pick up keycard");
 					System.out.println("You are in the reactor room. You see a keycard on the floor." +
 					"\n You think that you should pick it up.");
 					//TODO: Implement complete reactor room functionality.
@@ -74,7 +93,7 @@ public class Game {
 				if (ui.takeValidInput("leave").equals("leave"))
 				{
 					g.type("Alright then, I suppose I have to let you go");
-					ending = "Don't play the game. Fine then";
+					ending = "Don't play the game. Fine then.";
 					System.out.flush();
 					System.out.println("\nEnding Get: " + "\n" + ending);
 				}
