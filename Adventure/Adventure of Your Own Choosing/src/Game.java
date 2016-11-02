@@ -29,7 +29,26 @@ public class Game {
 			{
 				if(hasBridgeKey == true)
 				{
-					System.out.println("You have now entered the bridge. You can:");
+					System.out.println("You enter the bridge. You see a control panel." + "\nYou may now release the"
+							+ " escape pods. You may also self destruct the ship");
+							if(ui.takeValidInput("self destruct", "release the escape pods").equals("release the escape pods"))
+							{
+								System.out.println("You enter an escape pod, and slowly begin to drift away from your ship, presumably" +
+								"\ntowards a new beginning");
+								ending = "Leave it all behind";
+								System.out.println("\nEnding Get: " + "\n" + ending);
+							}
+							else
+							{
+								g.type("This action cannot be undone. Continue? Y/N");
+								if(ui.takeValidInput("Y","N").equals("y"))
+								{
+									g.type("Commencing self destruct sequence.");
+									System.out.println("The self destruct sequence commences," + "\n blowing the ship to bits, with you inside");
+									ending = "Sleep, finally";
+									System.out.println("\nEnding Get: " + "\n" + ending);
+								}
+							}
 				}
 				else
 				{
@@ -54,11 +73,19 @@ public class Game {
 									ending = "Leave it all behind";
 									System.out.println("\nEnding Get: " + "\n" + ending);
 								}
+								else
+								{
+									g.type("This action cannot be undone. Continue? Y/N");
+									if(ui.takeValidInput("Y","N").equals("y"))
+									{
+										g.type("Commencing self destruct sequence.");
+										System.out.println("The self destruct sequence commences," + "\n blowing the ship to bits, with you inside");
+										ending = "Sleep, finally";
+										System.out.println("\nEnding Get: " + "\n" + ending);
+									}
+								}
 								
 							}
-						}
-						{
-							
 						}
 					}
 				}
@@ -66,12 +93,11 @@ public class Game {
 			
 			else
 			{
-				System.out.println("You are in the engine room. A loud humming surrounds you." +
+				System.out.println("You are in the reactor room. A loud humming surrounds you." +
 				"\n You see two doors before you. You can:" +
 				"\n Go through the door marked \u001B[1m engine or" +
 				"\n Go through the door marked \u001B[1m reactor." + "\n>");
-				String userInput = ui.takeValidInput("engine", "reactor");
-				if(userInput.equals("engine"))
+				if(ui.takeValidInput("engine", "reactor").equals("engine"))
 				{
 					System.out.println("You are in the engine room. You can:");
 					//TODO: Implement complete engine room functionality.
@@ -107,7 +133,26 @@ public class Game {
 					{
 						if(hasBridgeKey == true)
 						{
-							System.out.println("You have now entered the bridge. You can:");
+							System.out.println("You enter the bridge. You see a control panel." + "\nYou may now release the"
+									+ " escape pods. You may also self destruct the ship");
+									if(ui.takeValidInput("self destruct", "release the escape pods").equals("release the escape pods"))
+									{
+										System.out.println("You enter an escape pod, and slowly begin to drift away from your ship, presumably" +
+										"\ntowards a new beginning");
+										ending = "Leave it all behind";
+										System.out.println("\nEnding Get: " + "\n" + ending);
+									}
+									else
+									{
+										g.type("This action cannot be undone. Continue? Y/N");
+										if(ui.takeValidInput("Y","N").equals("y"))
+										{
+											g.type("Commencing self destruct sequence.");
+											System.out.println("The self destruct sequence commences," + "\n blowing the ship to bits, with you inside");
+											ending = "Sleep, finally";
+											System.out.println("\nEnding Get: " + "\n" + ending);
+										}
+									}
 						}
 						else
 						{
@@ -118,6 +163,22 @@ public class Game {
 								System.out.println("You are back where you started. You think you should probably go to the " + "\n reactor room now.");
 								System.out.println("You are in the reactor room. You see a keycard on the floor." +
 										"\n You think that you should pick it up.");
+								if(ui.takeValidInput("pick up", "override reactor control protocols").equals("pick up"))
+								{
+									System.out.println("You pick up the keycard. You can now go to the bridge.");
+									if(ui.takeValidInput("go to the bridge", "override reactor control protocols").equals("go to the bridge"))
+									{
+										System.out.println("You enter the bridge. You see a control panel." + "\nYou may now release the"
+										+ " escape pods. You may also self destruct the ship");
+										if(ui.takeValidInput("self destruct", "release the escape pods").equals("release the escape pods"))
+										{
+											System.out.println("You enter an escape pod, and slowly begin to drift away from your ship, presumably" +
+											"\ntowards a new beginning");
+											ending = "Leave it all behind";
+											System.out.println("\nEnding Get: " + "\n" + ending);
+										}
+									}
+								}
 							}
 						}
 					}

@@ -24,7 +24,6 @@ public class ValidUserInput
 	 */
 	public String takeValidInput(String...valid)
 	{
-		//Takes a variable amount of arguments. It took way too long to figure this out
 			validInput = valid;
 			userInput = ui.nextLine().toLowerCase();
 			if(Arrays.asList(validInput).contains(userInput))
