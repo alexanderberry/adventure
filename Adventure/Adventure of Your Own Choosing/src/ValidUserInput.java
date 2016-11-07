@@ -11,7 +11,6 @@ import java.util.Scanner;
 public class ValidUserInput 
 {
 	Scanner ui = new Scanner(System.in);
-	private String[] validInput;
 	private String userInput;
 	public ValidUserInput()
 	{
@@ -24,18 +23,18 @@ public class ValidUserInput
 	 */
 	public String takeValidInput(String...valid)
 	{
-			validInput = valid;
 			userInput = ui.nextLine().toLowerCase();
-			if(Arrays.asList(validInput).contains(userInput))
+			if(Arrays.asList(valid).contains(userInput))
 			{
 				return userInput;
 			}
 			else
 			{
-				while(!((userInput.equals(validInput))))
+				while(!((userInput.equals(valid))))
 				{
-					System.out.println("Error, input is not valid. You can " + validInput + ". " + "Please try again" + "\n>");
-					if(this.takeValidInput(valid).equals(validInput))
+					System.out.print("Error, input is not valid. You can " + Arrays.toString(valid) + ". " + "Please try again" + "\n>");
+					takeValidInput(valid);
+					if(Arrays.asList(valid).contains(userInput))
 					{
 						return userInput;
 					}
